@@ -1,0 +1,33 @@
+{
+ "status": "OK",
+ "data": [
+  {
+   "versionNumber": 1,
+   "versionMinorNumber": 1,
+   "versionState": "RELEASED",
+   "releaseTime": "2023-01-26T14:26:39Z",
+   "license": {
+    "name": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0",
+    "iconUri": "https://i.creativecommons.org/l/by/4.0/88x31.png"
+   },
+   "files": [
+    {
+     "label": "icp1970.xls",
+     "restricted": false,
+     "dataFile": {
+      "id": 354103,
+      "persistentId": "",
+      "filename": "icp1970.xls",
+      "contentType": "application/vnd.ms-excel",
+      "filesize": 798208,
+      "checksum": {
+       "type": "SHA-1",
+       "value": "36f4dfc4ac386323ada7e8e17036f2dd743ba719"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
