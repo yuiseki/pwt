@@ -1,0 +1,244 @@
+# Where this data comes from and what was done to it.
+
+source:
+  name: Penn World Table (PWT)
+  publisher: Groningen Growth and Development Centre (GGDC), Faculty of Economics and Business, University of Groningen
+  current_release: https://www.rug.nl/ggdc/productivity/pwt/
+  earlier_releases: https://www.rug.nl/ggdc/productivity/pwt/earlier-releases
+  hosting: 11.0 and 10.01 on DataverseNL (files and SHA-1 from its public API); 10.0 and earlier as files under https://www.rug.nl/ggdc/docs/
+  licence:
+    applied: CC BY 4.0 (each release page, read 2026-10-05; DataverseNL records of 11.0 and 10.01)
+    licensors: Robert C. Feenstra, Robert Inklaar and Marcel P. Timmer
+    attribution_required: true
+    citation_required: 'Feenstra, Robert C., Robert Inklaar and Marcel P. Timmer (2015), "The Next Generation of the Penn World Table", American Economic Review, 105(10), 3150-3182'
+    share_alike: false
+    not_checked: the terms of third-party input data inside the program packages
+  not_taken: ICP benchmark workbooks (icp19xx.xls) linked as separate files, the AER article, releases 7.1 and earlier (their pages state no licence)
+
+releases:
+  note: |
+    Each release is kept whole: every file its page links, byte for byte,
+    under raw/<release>/, listed in MANIFEST.json. Files linked from more
+    than one page are kept in each release that links them. Tables are
+    made into Parquet from their Stata files; the main table of a release
+    is the subset named by the release, the others '<release>.<table>'.
+  "11.0":
+    page: https://www.rug.nl/ggdc/productivity/pwt/
+    doi: 10.34894/FABVLR
+    licence: http://creativecommons.org/licenses/by/4.0/
+    release_statement: "Published on October 7, 2025"
+    dataverse: {dataset_version: '2.0', release_time: '2025-10-10T11:49:22Z', publication_date: '2025-10-07'}
+    files:
+      program_package_pwt_110.zip: {bytes: 4883267, sha256: 18e34296daef00869c7b23bbda31985a2415b02ec5f416b4598c805cd65f7921, last_modified: "Tue, 07 Oct 2025 08:53:59 GMT"}
+      pwt110.dta: {bytes: 3739965, sha256: 2a0d214958dd46ad6cb9966f5dfa2fc8ad546475c79ed70564caf7383777aaa1, last_modified: "Tue, 07 Oct 2025 08:18:55 GMT"}
+      pwt110.xlsx: {bytes: 5839841, sha256: 7b337e94f39dfe304bc459e433f8ce0624496c812707ae0c924888f5142b3ab3, last_modified: "Fri, 10 Oct 2025 11:48:43 GMT", replaced: [{"dataset_version": "1.0", "datafile_id": 554027, "bytes": 5841216, "sha1": "cd05909f3a7688c94cfd3a9324611ad29d757d3b"}]}
+      pwt110_capital_detail.dta: {bytes: 1793875, sha256: 5d28bf61084566222dd33352752868431ef278dab8b36e8aea6da6fa49274b41, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_capital_detail.xlsx: {bytes: 3948645, sha256: 37c7449ff30a91e4597c2a06fa947c5a4b40376fc6b89d86bc93b1f8ebcbcf2c, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_labor_detail.dta: {bytes: 2723875, sha256: 245d31864aa9d86abfc011f72404b13e364cc834033609a054e2c184227f6a0c, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_na_data.dta: {bytes: 2092044, sha256: 238e23459de1a96b686873cf9e45473854a55da28ddc9e002b12473340dbc105, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_na_data.xlsx: {bytes: 2732538, sha256: 7514e8585e89cb064aaa624417cdc49ecea82786969eb55238836b9bc3f29d04, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_sh_bilateral_cor_data.dta: {bytes: 10642598, sha256: 09b630a64322a54e513e35d5d8e04b5fbf5a5b8ef201399ae98808765c78bd3e, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_trade_detail.dta: {bytes: 1817863, sha256: 5e3aa51b969a40cbf9658a968a16ca9091edbe954732f9d7d0b1c866fffad66b, last_modified: "Tue, 07 Oct 2025 08:18:54 GMT"}
+      pwt110_user_guide_to_data_files.pdf: {bytes: 119363, sha256: 93acc1c1c451809d1668ce6e9dc3b7f17d90ba36f08a661e82016f5c2da87cc2, last_modified: "Tue, 07 Oct 2025 08:18:55 GMT"}
+      pwt110_whatsnew.pdf: {bytes: 394645, sha256: d6b2fb6b15d62ae0f465809191b9840fe325891efe98a34f3d2a8a19d69ac97c, last_modified: "Tue, 07 Oct 2025 08:18:55 GMT"}
+    subsets:
+      '11.0': {table: pwt, parquet: parquet/11.0/pwt.parquet, source: pwt110.dta, xlsx: pwt110.xlsx, rows: 13690, columns: 51, years: 1950-2023, countries: 185}
+      '11.0.na_data': {table: na_data, parquet: parquet/11.0/na_data.parquet, source: pwt110_na_data.dta, xlsx: pwt110_na_data.xlsx, rows: 13114, columns: 21, years: 1950-2025, countries: 217}
+      '11.0.capital_detail': {table: capital_detail, parquet: parquet/11.0/capital_detail.parquet, source: pwt110_capital_detail.dta, xlsx: pwt110_capital_detail.xlsx, rows: 13320, columns: 34, years: 1950-2023, countries: 180}
+      '11.0.labor_detail': {table: labor_detail, parquet: parquet/11.0/labor_detail.parquet, source: pwt110_labor_detail.dta, rows: 13114, columns: 24, years: 1950-2025, countries: 217}
+      '11.0.trade_detail': {table: trade_detail, parquet: parquet/11.0/trade_detail.parquet, source: pwt110_trade_detail.dta, rows: 13690, columns: 30, years: 1950-2023, countries: 185}
+      '11.0.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/11.0/esh_bilateral_cor.parquet, source: pwt110_sh_bilateral_cor_data.dta, rows: 393970, columns: 4, years: 1970-2021, countries: 187}
+  "10.01":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt1001
+    doi: 10.34894/QT5BCC
+    licence: http://creativecommons.org/licenses/by/4.0/
+    release_statement: "Published on January 23, 2023"
+    dataverse: {dataset_version: '1.1', release_time: '2023-01-26T14:26:39Z', publication_date: '2023-01-26'}
+    files:
+      na_data_v2009.dta: {bytes: 1371784, sha256: 0bdf5b97a68c62f1ceda554f1ba3e0df264407f99dcf6d4d78a7ea4c622f8898, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      na_data_v2010.dta: {bytes: 1400907, sha256: 36144b95612a08b6d30564aaf87689cb63a6baaacb1bf738f1f2e68d1e8e36f9, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      na_data_v2011.dta: {bytes: 1502989, sha256: 26465fba5dc821f797a06c98644bc0dd7da18dbee09b2ebf65c58e697242e00b, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      program_package_pwt_10_01.zip: {bytes: 2669181, sha256: 8cfb763b01a7ceab1bd1278e298a81fbfa08e0c6a2743fbd0dadb235053d4ce6, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      pwt1001-esh_bilateral_cor_data.dta: {bytes: 6415651, sha256: 47ea740de7860f44dd83a336f7487acb3dd2cb12a18691a22dae516a2494686e, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt1001-labor-detail.dta: {bytes: 1128046, sha256: e3620cafdb3addec58466b577b5a4234eec7a18145191fafd03a29b0a4964cae, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt1001-trade-detail.dta: {bytes: 1703463, sha256: b974e999727e174aa44e7ed75bea8090853e749c81fa563159a6724b6dccabfc, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      pwt1001-whatsnew.pdf: {bytes: 1793782, sha256: 5692506383f20e8f62500db0bd75e4e069b4f1cc347c7333f5ac945060a1fdd3, last_modified: "Sun, 30 Mar 2025 01:00:23 GMT"}
+      pwt1001.dta: {bytes: 3452645, sha256: 746a483666a5371f8e686f8bfea6c20e211e5ecdd928842c6e01d2bd623ffb4c, last_modified: "Sun, 30 Mar 2025 01:00:23 GMT"}
+      pwt1001.xlsx: {bytes: 6551843, sha256: bf2b66c5fd8b465870eeab8bbfa3a57e73253a3236a933286259efbbb5fb67a2, last_modified: "Sun, 30 Mar 2025 01:00:23 GMT"}
+      pwt1001_capital_detail.dta: {bytes: 1698115, sha256: 8e45ba9b5b702006cf6dd487aadf51876ea8d8d1654da26398f15a9d9ac078fb, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt1001_capital_detail.xlsx: {bytes: 4294350, sha256: c8bace595bbdd6cfecb2bb826d7760cc8dc696885311feb4254a39344b58f4dd, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt1001_na_data.dta: {bytes: 1945996, sha256: 909f5a172c301142421f9c4c1893ea8c1b2ab393371270a9218fc99baf7f29f3, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt1001_na_data.xlsx: {bytes: 3069803, sha256: e1af48b2067729e559ecc722f0a5ef0a8f4cbf1cdb718036b018eacfe2dc7424, last_modified: "Sun, 30 Mar 2025 01:00:22 GMT"}
+      pwt90-na-data.dta: {bytes: 1762096, sha256: e8541497144684dd2330a4b430d24f0a949a357d19cad9992ed1fbe501334777, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+      pwt91_na_data.dta: {bytes: 1869502, sha256: 395258778cd8fb1b3273bc0a7cba4b986c6bd73e87ba8607505b6ad8a8e0c2cb, last_modified: "Sun, 30 Mar 2025 01:00:21 GMT"}
+    subsets:
+      '10.01': {table: pwt, parquet: parquet/10.01/pwt.parquet, source: pwt1001.dta, xlsx: pwt1001.xlsx, rows: 12810, columns: 52, years: 1950-2019, countries: 183}
+      '10.01.na_data': {table: na_data, parquet: parquet/10.01/na_data.parquet, source: pwt1001_na_data.dta, xlsx: pwt1001_na_data.xlsx, rows: 12588, columns: 21, years: 1950-2019, countries: 217}
+      '10.01.capital_detail': {table: capital_detail, parquet: parquet/10.01/capital_detail.parquet, source: pwt1001_capital_detail.dta, xlsx: pwt1001_capital_detail.xlsx, rows: 12600, columns: 34, years: 1950-2019, countries: 180}
+      '10.01.labor_detail': {table: labor_detail, parquet: parquet/10.01/labor_detail.parquet, source: pwt1001-labor-detail.dta, rows: 12588, columns: 20, years: 1950-2019, countries: 217}
+      '10.01.trade_detail': {table: trade_detail, parquet: parquet/10.01/trade_detail.parquet, source: pwt1001-trade-detail.dta, rows: 12810, columns: 30, years: 1950-2019, countries: 183}
+      '10.01.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/10.01/esh_bilateral_cor.parquet, source: pwt1001-esh_bilateral_cor_data.dta, rows: 256410, columns: 4, years: 1970-2017, countries: 184}
+  "10.0":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt100
+    doi: 10.15141/S5Q94M
+    licence: http://creativecommons.org/licenses/by/4.0/
+    files:
+      na_data_v2009.zip: {bytes: 1873760, sha256: 22b2af1a81402d566e9a5d5549f3ebe066b0e77870fe8f4adc56be290cba5f93, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2010.zip: {bytes: 1073164, sha256: bc48e2424365ea2c8b16c1d32c2ef2744bf4b33cf5c95615bdb55e50f6b3da4f, last_modified: "Fri, 09 Sep 2016 08:53:47 GMT"}
+      na_data_v2011.dta: {bytes: 1502989, sha256: 26465fba5dc821f797a06c98644bc0dd7da18dbee09b2ebf65c58e697242e00b, last_modified: "Fri, 09 Sep 2016 08:53:51 GMT"}
+      pwt100-capital-detail.dta: {bytes: 1748515, sha256: b04ddf06398ace66ce39f01366627828faf157f39df7b61e8613bddfa46fe99d, last_modified: "Fri, 18 Jun 2021 10:16:33 GMT"}
+      pwt100-capital-detail.xlsx: {bytes: 4336579, sha256: 60de47766f4980805643c27e33b462642791515fabb9b213319d87b6a498f526, last_modified: "Fri, 18 Jun 2021 10:16:34 GMT"}
+      pwt100-changelog.pdf: {bytes: 165635, sha256: 3e438de5f339433a9be08869697d270d8d28fcfdad58f7db17a7f1f8e4fa2486, last_modified: "Fri, 18 Jun 2021 10:16:34 GMT"}
+      pwt100-esh-bilateral-cor-data.dta: {bytes: 6415651, sha256: baf30ca11b251f840a2d5dd4b1e80a01ff77f2eb758ce789a2b2b4411faf9f41, last_modified: "Fri, 18 Jun 2021 10:16:37 GMT"}
+      pwt100-labor-detail.dta: {bytes: 1128046, sha256: e3620cafdb3addec58466b577b5a4234eec7a18145191fafd03a29b0a4964cae, last_modified: "Fri, 18 Jun 2021 10:16:38 GMT"}
+      pwt100-na-data.dta: {bytes: 1945996, sha256: 909f5a172c301142421f9c4c1893ea8c1b2ab393371270a9218fc99baf7f29f3, last_modified: "Fri, 18 Jun 2021 10:16:40 GMT"}
+      pwt100-na-data.xlsx: {bytes: 3091270, sha256: d9c3e02f5dd0bdbed67539e4e6803b4f6f6adf34403a4e4662262127d59db2b2, last_modified: "Fri, 18 Jun 2021 10:16:41 GMT"}
+      pwt100-program-package.zip: {bytes: 2666447, sha256: a3ec39f199e889e0759a1c920ef1a3c87af966ec749603f8a8f774d32fcf9b65, last_modified: "Fri, 18 Jun 2021 10:16:44 GMT"}
+      pwt100-trade-detail.dta: {bytes: 1703463, sha256: b974e999727e174aa44e7ed75bea8090853e749c81fa563159a6724b6dccabfc, last_modified: "Fri, 18 Jun 2021 10:16:45 GMT"}
+      pwt100-user-guide-to-data-files.pdf: {bytes: 204265, sha256: d536323485bcd1fd67d21cd3474f27764e266f4124ebbad0e9b00ea07e4e0fa0, last_modified: "Fri, 18 Jun 2021 10:16:46 GMT"}
+      pwt100-whatsnew.pdf: {bytes: 555962, sha256: 6e2c3b950aef7492d46ac752179380042699af3b1bb41523a838ef82a07906c5, last_modified: "Fri, 18 Jun 2021 10:16:46 GMT"}
+      pwt100.dta: {bytes: 3452645, sha256: 51d0b44fab4535e2c38ea5b2cab10ede548525e5488b4fafa166776723db4100, last_modified: "Fri, 18 Jun 2021 10:16:27 GMT"}
+      pwt100.xlsx: {bytes: 6561820, sha256: 1a13ca27ada7bcab29c15430b3fe7f4d6c3cf0d2ee3eef3aed31d0fc0a2085d3, last_modified: "Fri, 18 Jun 2021 10:16:29 GMT"}
+      pwt90-na-data.dta: {bytes: 1762096, sha256: e8541497144684dd2330a4b430d24f0a949a357d19cad9992ed1fbe501334777, last_modified: "Mon, 11 Jan 2021 08:30:17 GMT"}
+      pwt91_na_data.dta: {bytes: 1869502, sha256: 395258778cd8fb1b3273bc0a7cba4b986c6bd73e87ba8607505b6ad8a8e0c2cb, last_modified: "Mon, 15 Apr 2019 14:18:56 GMT"}
+    subsets:
+      '10.0': {table: pwt, parquet: parquet/10.0/pwt.parquet, source: pwt100.dta, xlsx: pwt100.xlsx, rows: 12810, columns: 52, years: 1950-2019, countries: 183}
+      '10.0.na_data': {table: na_data, parquet: parquet/10.0/na_data.parquet, source: pwt100-na-data.dta, xlsx: pwt100-na-data.xlsx, rows: 12588, columns: 21, years: 1950-2019, countries: 217}
+      '10.0.capital_detail': {table: capital_detail, parquet: parquet/10.0/capital_detail.parquet, source: pwt100-capital-detail.dta, xlsx: pwt100-capital-detail.xlsx, rows: 12600, columns: 34, years: 1950-2019, countries: 180}
+      '10.0.labor_detail': {table: labor_detail, parquet: parquet/10.0/labor_detail.parquet, source: pwt100-labor-detail.dta, rows: 12588, columns: 20, years: 1950-2019, countries: 217}
+      '10.0.trade_detail': {table: trade_detail, parquet: parquet/10.0/trade_detail.parquet, source: pwt100-trade-detail.dta, rows: 12810, columns: 30, years: 1950-2019, countries: 183}
+      '10.0.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/10.0/esh_bilateral_cor.parquet, source: pwt100-esh-bilateral-cor-data.dta, rows: 256410, columns: 4, years: 1970-2017, countries: 184}
+  "9.1":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt9.1
+    doi: 10.15141/S50T0R
+    licence: http://creativecommons.org/licenses/by/4.0/
+    files:
+      esh_bilateral_cor_data.dta: {bytes: 1909651, sha256: f2117e84037d06cf0fb7f73ed5d9f3e2129a6a6ffefe810015878e52b856f8f6, last_modified: "Fri, 09 Sep 2016 08:53:51 GMT"}
+      na_data_v2009.zip: {bytes: 1873760, sha256: 22b2af1a81402d566e9a5d5549f3ebe066b0e77870fe8f4adc56be290cba5f93, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2010.zip: {bytes: 1073164, sha256: bc48e2424365ea2c8b16c1d32c2ef2744bf4b33cf5c95615bdb55e50f6b3da4f, last_modified: "Fri, 09 Sep 2016 08:53:47 GMT"}
+      na_data_v2011.dta: {bytes: 1502989, sha256: 26465fba5dc821f797a06c98644bc0dd7da18dbee09b2ebf65c58e697242e00b, last_modified: "Fri, 09 Sep 2016 08:53:51 GMT"}
+      pwt91.dta: {bytes: 3071612, sha256: 0d63379378156f6e2575d1fe5a35a7fb465e8ca8f9081809223c6767b4dd7209, last_modified: "Tue, 09 Apr 2019 13:02:35 GMT"}
+      pwt91.xlsx: {bytes: 6267402, sha256: 52ef6c6e1e7d5f7f32152b6f56fb2c2089b22598b3c254f0eb8e2752a44273e0, last_modified: "Tue, 09 Apr 2019 13:02:35 GMT"}
+      pwt91_capital_detail.dta: {bytes: 1699195, sha256: 389beb01739907ed154ba2a67a7212c37dd911cbc6f59d9af1124f149a516e73, last_modified: "Tue, 09 Apr 2019 13:02:36 GMT"}
+      pwt91_capitalservices_ipmrevision.pdf: {bytes: 852410, sha256: 7d4cd33d6be3a8628dce2ebccc7ec2a90eb2f3a702b51a3d689f6b2fff26238d, last_modified: "Thu, 26 Sep 2019 20:13:53 GMT"}
+      pwt91_labor_detail.dta: {bytes: 1109965, sha256: 6859d005cc766c34c928c28529d2d972a8919e0dd01aea4b9f7756f105906761, last_modified: "Tue, 09 Apr 2019 13:02:39 GMT"}
+      pwt91_na_data.dta: {bytes: 1869502, sha256: 395258778cd8fb1b3273bc0a7cba4b986c6bd73e87ba8607505b6ad8a8e0c2cb, last_modified: "Mon, 15 Apr 2019 14:18:56 GMT"}
+      pwt91_na_data.xlsx: {bytes: 2917313, sha256: b2fdc3e4b6257cad25d0bd3bb99b0262319db08efe4029aa8503d72c08b7d029, last_modified: "Mon, 15 Apr 2019 14:19:04 GMT"}
+      pwt91_trade_detail.dta: {bytes: 1648469, sha256: a3763e8a81034bf96b613d1bb3773ae5c190e5568f3bb1772feb83d133893396, last_modified: "Wed, 10 Apr 2019 12:58:52 GMT"}
+      pwt91_user_guide_to_data_files.pdf: {bytes: 200305, sha256: adea1a6d8709a12d91b5441c68077afce10d5ef676706283aff49103c7f19f60, last_modified: "Thu, 11 Apr 2019 14:02:42 GMT"}
+      pwt91_whatsnew.pdf: {bytes: 1212932, sha256: 0849cc70a31d36d993f1b57201e64c482bad662aa9ea1831b9d27b8cbce4bc1c, last_modified: "Tue, 09 Apr 2019 13:02:37 GMT"}
+    subsets:
+      '9.1': {table: pwt, parquet: parquet/9.1/pwt.parquet, source: pwt91.dta, xlsx: pwt91.xlsx, rows: 12376, columns: 52, years: 1950-2017, countries: 182}
+      '9.1.na_data': {table: na_data, parquet: parquet/9.1/na_data.parquet, source: pwt91_na_data.dta, xlsx: pwt91_na_data.xlsx, rows: 12088, columns: 21, years: 1950-2017, countries: 216}
+      '9.1.capital_detail': {table: capital_detail, parquet: parquet/9.1/capital_detail.parquet, source: pwt91_capital_detail.dta, rows: 12240, columns: 34, years: 1950-2017, countries: 180}
+      '9.1.labor_detail': {table: labor_detail, parquet: parquet/9.1/labor_detail.parquet, source: pwt91_labor_detail.dta, rows: 12376, columns: 20, years: 1950-2017, countries: 182}
+      '9.1.trade_detail': {table: trade_detail, parquet: parquet/9.1/trade_detail.parquet, source: pwt91_trade_detail.dta, rows: 12376, columns: 30, years: 1950-2017, countries: 182}
+      '9.1.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/9.1/esh_bilateral_cor.parquet, source: esh_bilateral_cor_data.dta, rows: 76170, columns: 4, years: 1970-2011, countries: 186}
+  "9.0":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt9.0
+    doi: 10.15141/S5J01T
+    licence: http://creativecommons.org/licenses/by/4.0/
+    files:
+      esh_bilateral_cor_data.dta: {bytes: 1909651, sha256: f2117e84037d06cf0fb7f73ed5d9f3e2129a6a6ffefe810015878e52b856f8f6, last_modified: "Fri, 09 Sep 2016 08:53:51 GMT"}
+      human_capital_in_pwt_90.pdf: {bytes: 228368, sha256: 7f15f578fd62e10dedecb10e1cdbab0b85d1e4d74066956cc99c3777900e725f, last_modified: "Thu, 08 Sep 2016 15:21:57 GMT"}
+      na_data.xlsx: {bytes: 2067766, sha256: 97c97d4261219d81957871a1fc650e34ed1a416f838cd8182929e1516efd2f31, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2009.zip: {bytes: 1873760, sha256: 22b2af1a81402d566e9a5d5549f3ebe066b0e77870fe8f4adc56be290cba5f93, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2010.zip: {bytes: 1073164, sha256: bc48e2424365ea2c8b16c1d32c2ef2744bf4b33cf5c95615bdb55e50f6b3da4f, last_modified: "Fri, 09 Sep 2016 08:53:47 GMT"}
+      na_data_v2011.dta: {bytes: 1502989, sha256: 26465fba5dc821f797a06c98644bc0dd7da18dbee09b2ebf65c58e697242e00b, last_modified: "Fri, 09 Sep 2016 08:53:51 GMT"}
+      programs90.zip: {bytes: 5257598, sha256: 29fbfaa9c993ff8aca0a76414df4a08f6955538f4059a1234b3b250ce2a05881, last_modified: "Fri, 09 Sep 2016 08:53:49 GMT"}
+      pwt90-na-data.dta: {bytes: 1762096, sha256: e8541497144684dd2330a4b430d24f0a949a357d19cad9992ed1fbe501334777, last_modified: "Mon, 11 Jan 2021 08:30:17 GMT"}
+      pwt90.dta: {bytes: 3131446, sha256: eabb2673f850e84407fdf659fc2081f380f36172d3a27ecd29a9e3758d09a60b, last_modified: "Thu, 08 Sep 2016 15:08:18 GMT"}
+      pwt90.xlsx: {bytes: 4784339, sha256: ea73251bfd23ea9120b64c6f363a01ae780abfc2d9ba057340da054ac55305ad, last_modified: "Thu, 08 Sep 2016 15:08:18 GMT"}
+      pwt90_capital_detail.dta: {bytes: 1076185, sha256: cb5b3c60722314d0ddfe6973bbc8b104c9a40cc9f6b22b7a22632056152f3587, last_modified: "Wed, 11 Oct 2017 13:01:32 GMT"}
+      pwt90_labor_detail.dta: {bytes: 1064116, sha256: 5442a7c670e8172a2574980cfb615319b355b0a939b8847cf0d849e0d1dd2ee3, last_modified: "Fri, 09 Sep 2016 08:53:50 GMT"}
+      pwt90_trade_detail.dta: {bytes: 1578167, sha256: d7a81a67d996a018fcfe33e2ea4279b7d80efd72f4df19cfbac5a4133db0dfe5, last_modified: "Fri, 09 Sep 2016 08:53:49 GMT"}
+      user_guide_to_pwt90_data_files.pdf: {bytes: 812931, sha256: 8ef9ef3d56ff286599f6148ddf31276026dae3f1c1b3a248a8cef9beabab11eb, last_modified: "Thu, 16 Mar 2017 10:15:28 GMT"}
+      what_is_new_in_pwt90.pdf: {bytes: 351308, sha256: 64bc5974664544f596c7bc2285d66631a7b26ee6d75e9ad036d96d31154ba4b9, last_modified: "Thu, 08 Sep 2016 14:44:24 GMT"}
+    subsets:
+      '9.0': {table: pwt, parquet: parquet/9.0/pwt.parquet, source: pwt90.dta, xlsx: pwt90.xlsx, rows: 11830, columns: 47, years: 1950-2014, countries: 182}
+      '9.0.na_data': {table: na_data, parquet: parquet/9.0/na_data.parquet, source: pwt90-na-data.dta, xlsx: na_data.xlsx, rows: 11386, columns: 21, years: 1950-2014, countries: 212}
+      '9.0.capital_detail': {table: capital_detail, parquet: parquet/9.0/capital_detail.parquet, source: pwt90_capital_detail.dta, rows: 11830, columns: 22, years: 1950-2014, countries: 182}
+      '9.0.labor_detail': {table: labor_detail, parquet: parquet/9.0/labor_detail.parquet, source: pwt90_labor_detail.dta, rows: 11830, columns: 20, years: 1950-2014, countries: 182}
+      '9.0.trade_detail': {table: trade_detail, parquet: parquet/9.0/trade_detail.parquet, source: pwt90_trade_detail.dta, rows: 11830, columns: 30, years: 1950-2014, countries: 182}
+      '9.0.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/9.0/esh_bilateral_cor.parquet, source: esh_bilateral_cor_data.dta, rows: 76170, columns: 4, years: 1970-2011, countries: 186}
+  "8.1":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt8.1
+    doi: 10.15141/S5NP4S
+    licence: http://creativecommons.org/licenses/by/4.0/
+    release_statement: "released on April 13, 2015"
+    files:
+      esh_bilateral_cor_data.zip: {bytes: 441340, sha256: cd7b1a83b39c31760c60cdf031d1d7e3776d6f9257269af895036589ad6fc753, last_modified: "Fri, 09 Sep 2016 09:51:55 GMT"}
+      na_data8.1.xlsx: {bytes: 1757030, sha256: bce69620e4a1cc06507eb47c675fb8a7b3b52208edd1b22ff64d7e5bcb9359b6, last_modified: "Fri, 09 Sep 2016 12:20:17 GMT"}
+      na_data8.1.zip: {bytes: 1110597, sha256: a8ce91a223aa1e48656853413b1107ab24609feebf9b94500185b9cce356f186, last_modified: "Fri, 09 Sep 2016 12:20:17 GMT"}
+      na_data_v2009.zip: {bytes: 1873760, sha256: 22b2af1a81402d566e9a5d5549f3ebe066b0e77870fe8f4adc56be290cba5f93, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2010.zip: {bytes: 1073164, sha256: bc48e2424365ea2c8b16c1d32c2ef2744bf4b33cf5c95615bdb55e50f6b3da4f, last_modified: "Fri, 09 Sep 2016 08:53:47 GMT"}
+      programs_8.1.zip: {bytes: 5720552, sha256: ba400e6e110c5ea557ea5c1e54886d324bfba07bfbed193989beaf1145a60252, last_modified: "Fri, 09 Sep 2016 09:51:56 GMT"}
+      pwt81.xlsx: {bytes: 4168966, sha256: 71c668f02e17623df1905a29c9f2a47aed49f2b2e9557594f2d0004c61e1a606, last_modified: "Fri, 09 Sep 2016 09:51:57 GMT"}
+      pwt81.zip: {bytes: 1608751, sha256: 9c737652e99d556646293c1052ef33595269b0e0633bfc7d58dff03c38926d4d, last_modified: "Fri, 09 Sep 2016 09:51:56 GMT"}
+      pwt81_trade_detail.zip: {bytes: 891610, sha256: 19aa170e2f74b861d72dd15493742027f3274f2148dab21eafbc7b5dafb5f01a, last_modified: "Fri, 09 Sep 2016 09:58:32 GMT"}
+      what_is_new_in_pwt_81.pdf: {bytes: 257749, sha256: 9acfe93aa6862705436da5c36079d936d62517b732c19b1e570644d7ff2d170e, last_modified: "Fri, 09 Sep 2016 09:51:55 GMT"}
+    subsets:
+      '8.1': {table: pwt, parquet: parquet/8.1/pwt.parquet, source: pwt81.zip/pwt81.dta, xlsx: pwt81.xlsx, rows: 10354, columns: 47, years: 1950-2011, countries: 167}
+      '8.1.na_data': {table: na_data, parquet: parquet/8.1/na_data.parquet, source: na_data8.1.zip/na_data.dta, xlsx: na_data8.1.xlsx, rows: 10624, columns: 19, years: 1950-2011, countries: 209}
+      '8.1.trade_detail': {table: trade_detail, parquet: parquet/8.1/trade_detail.parquet, source: pwt81_trade_detail.zip/pwt81_trade_detail.dta, rows: 10354, columns: 30, years: 1950-2011, countries: 167}
+      '8.1.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/8.1/esh_bilateral_cor.parquet, source: esh_bilateral_cor_data.zip/esh_bilateral_cor_data.dta, rows: 43770, columns: 4, years: 1970-2005, countries: 168}
+  "8.0":
+    page: https://www.rug.nl/ggdc/productivity/pwt/pwt-releases/pwt8.0
+    doi: 10.15141/S5159X
+    licence: http://creativecommons.org/licenses/by/4.0/
+    release_statement: "released on July 2, 2013"
+    files:
+      capital_labor_and_tfp_in_pwt80.pdf: {bytes: 1974293, sha256: 22193f06a176c372e20e2f3f096b7da1f400850f2339d57280f89af4774d47cc, last_modified: "Fri, 09 Sep 2016 11:20:18 GMT"}
+      comparing_pwt80_with_pwt71.pdf: {bytes: 493302, sha256: 04a477c55abe97415e3a63964354efb5901bea6c867b0905950625220694c727, last_modified: "Fri, 09 Sep 2016 11:20:13 GMT"}
+      depreciation_rates.xlsx: {bytes: 233457, sha256: b0c3c673282cb85c5d87ff6c7bea1edece6d000801d7aa848d1ffab17c24bc7c, last_modified: "Fri, 09 Sep 2016 11:20:17 GMT"}
+      depreciation_rates.zip: {bytes: 51798, sha256: 3b8652d07d3f513eaf82c5f3bc8b0e8ae81ee9a58bdabcc5470be3947c49fce2, last_modified: "Fri, 09 Sep 2016 11:20:14 GMT"}
+      esh_bilateral_cor_data.zip: {bytes: 441340, sha256: cd7b1a83b39c31760c60cdf031d1d7e3776d6f9257269af895036589ad6fc753, last_modified: "Fri, 09 Sep 2016 09:51:55 GMT"}
+      exchange_rates_in_pwt80.pdf: {bytes: 77580, sha256: 0e97fa0e4f404d9bc31c428d0f4614c2cf1fcded04384c897e488a13a6f9a180, last_modified: "Fri, 09 Sep 2016 11:20:15 GMT"}
+      na_data-pwt8.0.xlsx: {bytes: 2263376, sha256: b05c41ce1bca997dc70d730e6bc386351bad8a759d0a3599d913b1ba5f47d337, last_modified: "Fri, 09 Sep 2016 12:20:16 GMT"}
+      na_data-pwt8.0.zip: {bytes: 1110216, sha256: d12a4cfb9efce30a4d7baf233325b11461980406b24d3e6c29bbda57ee9cbf3c, last_modified: "Fri, 09 Sep 2016 12:20:16 GMT"}
+      na_data_v2009.zip: {bytes: 1873760, sha256: 22b2af1a81402d566e9a5d5549f3ebe066b0e77870fe8f4adc56be290cba5f93, last_modified: "Fri, 09 Sep 2016 08:53:48 GMT"}
+      na_data_v2010.zip: {bytes: 1073164, sha256: bc48e2424365ea2c8b16c1d32c2ef2744bf4b33cf5c95615bdb55e50f6b3da4f, last_modified: "Fri, 09 Sep 2016 08:53:47 GMT"}
+      national_accounts_in_pwt80.pdf: {bytes: 81877, sha256: 205e56c399fac15d2a43c60a68f83f59f33a24a7f70aa8c1b7af8d891947562d, last_modified: "Fri, 09 Sep 2016 11:20:18 GMT"}
+      outliers_in_pwt80.pdf: {bytes: 84138, sha256: e998eb416679df6250952c4ed0dfc65dab1ebd4f8a093e5719c36a0d49877a76, last_modified: "Fri, 09 Sep 2016 11:20:18 GMT"}
+      programs8.zip: {bytes: 5880418, sha256: be0a24b80658f2894e2ce2430f9ea1b69abb9aec4f507360bac61aafe92edb4e, last_modified: "Fri, 09 Sep 2016 11:20:14 GMT"}
+      pwt80.xlsx: {bytes: 3595338, sha256: 3e5b34dc921df73e0f9d3478186a7f052de1f9f71323126a83804fb5ea8f55ef, last_modified: "Fri, 09 Sep 2016 11:20:16 GMT"}
+      pwt80.zip: {bytes: 1588858, sha256: c4ca2a1c9afc35ccb61b6b11e37a6d6a65b588faa9a610f83d036fdc2510beff, last_modified: "Fri, 09 Sep 2016 11:20:13 GMT"}
+      pwt80_mat.zip: {bytes: 1339078, sha256: d415b8060d8c6de49d4760857a557e2327d74bdca32ade12e979e36f771cd3a6, last_modified: "Fri, 09 Sep 2016 11:20:19 GMT"}
+      pwt80_trade_detail.zip: {bytes: 888820, sha256: 8dc2fb94086ea70b5362b11389564070b26bc2d036bcea41acf248e0fb2763dd, last_modified: "Fri, 09 Sep 2016 11:20:13 GMT"}
+      pwt_71vs80_variable_correspondence.pdf: {bytes: 117103, sha256: 6d51bf5ca0030e2744d8902a472f72f7a474d754ff8c8433512a616f01756ae2, last_modified: "Fri, 09 Sep 2016 11:20:17 GMT"}
+      pwt_80_user_guide.pdf: {bytes: 748886, sha256: f3edb1e777efb00ca794f5b9766e29d6ab4a5e7f5e4424ea91a51c9e4e208957, last_modified: "Fri, 09 Sep 2016 11:20:12 GMT"}
+      technical_guide_to_pwt80.pdf: {bytes: 248836, sha256: 36b1e5db24158e99770f1d4669795076daa5f37caba42b706cb3ef02717ab1df, last_modified: "Fri, 09 Sep 2016 11:20:18 GMT"}
+    subsets:
+      '8.0': {table: pwt, parquet: parquet/8.0/pwt.parquet, source: pwt80.zip/pwt80.dta, xlsx: pwt80.xlsx, rows: 10354, columns: 39, years: 1950-2011, countries: 167}
+      '8.0.na_data': {table: na_data, parquet: parquet/8.0/na_data.parquet, source: na_data-pwt8.0.zip/na_data.dta, xlsx: na_data-pwt8.0.xlsx, rows: 10624, columns: 19, years: 1950-2011, countries: 209}
+      '8.0.trade_detail': {table: trade_detail, parquet: parquet/8.0/trade_detail.parquet, source: pwt80_trade_detail.zip/pwt80_trade_detail.dta, rows: 10354, columns: 30, years: 1950-2011, countries: 167}
+      '8.0.esh_bilateral_cor': {table: esh_bilateral_cor, parquet: parquet/8.0/esh_bilateral_cor.parquet, source: esh_bilateral_cor_data.zip/esh_bilateral_cor_data.dta, rows: 43770, columns: 4, years: 1970-2005, countries: 168}
+      '8.0.depreciation_rates': {table: depreciation_rates, parquet: parquet/8.0/depreciation_rates.parquet, source: depreciation_rates.zip/depreciation_rates.dta, xlsx: depreciation_rates.xlsx, rows: 8059, columns: 3, years: 1951-2011, countries: 167}
+      '8.0.na_data_v2009': {table: na_data_v2009, parquet: parquet/8.0/na_data_v2009.parquet, source: na_data_v2009.zip/na_data_v2009.dta, rows: 10278, columns: 18, years: 1950-2009, countries: 211}
+      '8.0.na_data_v2010': {table: na_data_v2010, parquet: parquet/8.0/na_data_v2010.parquet, source: na_data_v2010.zip/na_data_v2010.dta, rows: 10497, columns: 18, years: 1950-2010, countries: 211}
+
+checked:
+  note: scripts/02_verify.py, with DuckDB, before upload
+  items:
+    - every raw file against MANIFEST.json (size, sha256, DataverseNL SHA-1); zip and xlsx CRC
+    - each subset has the row count its Stata file states
+    - every value of each subset equals the value read from the Stata file, compared one by one
+    - where an xlsx of the same table exists, its row count equals the Stata file's (8.1 main table excepted, 3 more rows in the xlsx)
+    - where an xlsx exists, every value agrees with it read by DuckDB's excel extension, within a relative 1e-6 (5e-4 for the national accounts of 8.1 and 9.0)
+    - the (countrycode, country) pairs of each main table equal those of its xlsx
+    - every column of the type its name gives
+    - a DuckDB without extensions opens every file
+    - no bloom filters
+
+modifications:
+  raw: none. GGDC's files, byte for byte.
+  parquet:
+    - made from the Stata files (for 8.0 and 8.1 the Stata file inside the zip), read with src/dta.py
+    - columns typed by name; a value that does not fit stops the build
+    - 4-byte floats widened exactly to DOUBLE; integers stored as DOUBLE where the rule says DOUBLE
+    - year (and i_mix) as INTEGER, also where the Stata file stores a float
+    - value-labelled codes (i_cig, i_xm, i_xr, i_outlier, i_irr and the coded columns of labor_detail) written as their labels
+    - Stata missing values and empty strings as NULL
+    - pwt81.dta decoded as Mac Roman (one byte, 0x99, in Cote d'Ivoire)
+    - rows in the order of the Stata file
+    - written with zstd, without bloom filters

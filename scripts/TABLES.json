@@ -1,0 +1,57 @@
+{
+  "11.0": {
+    "pwt": {"file": "pwt110.dta", "xlsx": "pwt110.xlsx"},
+    "na_data": {"file": "pwt110_na_data.dta", "xlsx": "pwt110_na_data.xlsx"},
+    "capital_detail": {"file": "pwt110_capital_detail.dta", "xlsx": "pwt110_capital_detail.xlsx"},
+    "labor_detail": {"file": "pwt110_labor_detail.dta"},
+    "trade_detail": {"file": "pwt110_trade_detail.dta"},
+    "esh_bilateral_cor": {"file": "pwt110_sh_bilateral_cor_data.dta"}
+  },
+  "10.01": {
+    "pwt": {"file": "pwt1001.dta", "xlsx": "pwt1001.xlsx"},
+    "na_data": {"file": "pwt1001_na_data.dta", "xlsx": "pwt1001_na_data.xlsx"},
+    "capital_detail": {"file": "pwt1001_capital_detail.dta", "xlsx": "pwt1001_capital_detail.xlsx"},
+    "labor_detail": {"file": "pwt1001-labor-detail.dta"},
+    "trade_detail": {"file": "pwt1001-trade-detail.dta"},
+    "esh_bilateral_cor": {"file": "pwt1001-esh_bilateral_cor_data.dta"}
+  },
+  "10.0": {
+    "pwt": {"file": "pwt100.dta", "xlsx": "pwt100.xlsx"},
+    "na_data": {"file": "pwt100-na-data.dta", "xlsx": "pwt100-na-data.xlsx"},
+    "capital_detail": {"file": "pwt100-capital-detail.dta", "xlsx": "pwt100-capital-detail.xlsx"},
+    "labor_detail": {"file": "pwt100-labor-detail.dta"},
+    "trade_detail": {"file": "pwt100-trade-detail.dta"},
+    "esh_bilateral_cor": {"file": "pwt100-esh-bilateral-cor-data.dta"}
+  },
+  "9.1": {
+    "pwt": {"file": "pwt91.dta", "xlsx": "pwt91.xlsx"},
+    "na_data": {"file": "pwt91_na_data.dta", "xlsx": "pwt91_na_data.xlsx"},
+    "capital_detail": {"file": "pwt91_capital_detail.dta"},
+    "labor_detail": {"file": "pwt91_labor_detail.dta"},
+    "trade_detail": {"file": "pwt91_trade_detail.dta"},
+    "esh_bilateral_cor": {"file": "esh_bilateral_cor_data.dta"}
+  },
+  "9.0": {
+    "pwt": {"file": "pwt90.dta", "xlsx": "pwt90.xlsx"},
+    "na_data": {"file": "pwt90-na-data.dta", "xlsx": "na_data.xlsx"},
+    "capital_detail": {"file": "pwt90_capital_detail.dta"},
+    "labor_detail": {"file": "pwt90_labor_detail.dta"},
+    "trade_detail": {"file": "pwt90_trade_detail.dta"},
+    "esh_bilateral_cor": {"file": "esh_bilateral_cor_data.dta"}
+  },
+  "8.1": {
+    "pwt": {"file": "pwt81.zip", "member": "pwt81.dta", "encoding": "mac_roman", "xlsx": "pwt81.xlsx"},
+    "na_data": {"file": "na_data8.1.zip", "member": "na_data.dta", "xlsx": "na_data8.1.xlsx"},
+    "trade_detail": {"file": "pwt81_trade_detail.zip", "member": "pwt81_trade_detail.dta"},
+    "esh_bilateral_cor": {"file": "esh_bilateral_cor_data.zip", "member": "esh_bilateral_cor_data.dta"}
+  },
+  "8.0": {
+    "pwt": {"file": "pwt80.zip", "member": "pwt80.dta", "xlsx": "pwt80.xlsx"},
+    "na_data": {"file": "na_data-pwt8.0.zip", "member": "na_data.dta", "xlsx": "na_data-pwt8.0.xlsx"},
+    "trade_detail": {"file": "pwt80_trade_detail.zip", "member": "pwt80_trade_detail.dta"},
+    "esh_bilateral_cor": {"file": "esh_bilateral_cor_data.zip", "member": "esh_bilateral_cor_data.dta"},
+    "depreciation_rates": {"file": "depreciation_rates.zip", "member": "depreciation_rates.dta", "xlsx": "depreciation_rates.xlsx", "sheet": "Sheet1"},
+    "na_data_v2009": {"file": "na_data_v2009.zip", "member": "na_data_v2009.dta"},
+    "na_data_v2010": {"file": "na_data_v2010.zip", "member": "na_data_v2010.dta"}
+  }
+}

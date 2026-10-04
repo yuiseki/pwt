@@ -47,10 +47,28 @@ release page and in the DataverseNL metadata. When using the data, cite:
 ## Run
 
 ```sh
-uv run python scripts/01_download.py   # fetch into data/raw/<release>/
-uv run python scripts/02_verify.py     # re-hash and test every file
-uv run python -m pytest                # parsing tests
+uv run python scripts/01_download.py        # fetch into data/raw/<release>/
+uv run python scripts/03_export_parquet.py  # Stata tables -> data/parquet/<release>/<table>.parquet
+uv run python scripts/02_verify.py          # re-hash every raw file, check every Parquet
+uv run python -m pytest                     # tests
+uv run python src/publish.py                # dry run: list what would go to the Hub
+uv run python src/publish.py --push         # upload to huggingface.co/datasets/yuiseki/pwt
 ```
+
+The export reads each table from its Stata file (inside the zip for 8.0
+and 8.1) with `src/dta.py`, a standard-library reader of Stata formats 114
+to 118, and writes one Parquet file per table, as listed in
+`scripts/TABLES.json`. The main table of a release becomes the subset
+`'<release>'`, every other table `'<release>.<table>'`. Column types come
+from column names (`column_type` in the export script); a value that does
+not fit its type stops the export. `02_verify.py` then compares every value
+with the Stata file, row counts and values with the xlsx where PWT ships
+one, and the types with the rule.
+
+`publish.py` refuses to upload if the card (`data/README.md`) does not
+declare every Parquet file as a subset, or if a raw file's sha256 differs
+from its manifest. It uploads `data/README.md`, `data/LICENSE`,
+`data/provenance.yaml`, the Parquet and every raw file unchanged.
 
 The download is idempotent: a file whose local copy still matches its manifest
 entry (and, on DataverseNL, the published SHA-1) is not fetched again.
@@ -59,11 +77,17 @@ Requests are sequential and at least 1.2 seconds apart.
 ## Layout
 
 ```
-scripts/01_download.py   discovery and download
-scripts/02_verify.py     checks against the manifests
-tests/                   unit tests, fixtures trimmed from real responses
-data/raw/<release>/      files as served, e.g. data/raw/11.0/pwt110.xlsx
+scripts/01_download.py        discovery and download
+scripts/03_export_parquet.py  Stata tables to typed Parquet
+scripts/TABLES.json           which file of which release is which table
+scripts/02_verify.py          checks against the manifests, the Stata files and the xlsx
+src/dta.py                    Stata .dta reader (formats 114, 115, 117, 118)
+src/publish.py                upload to the Hugging Face Hub (dry run by default)
+tests/                        unit tests, fixtures trimmed from real responses
+data/raw/<release>/           files as served, e.g. data/raw/11.0/pwt110.xlsx
 data/raw/<release>/MANIFEST.json
+data/parquet/<release>/       one Parquet file per table, e.g. data/parquet/11.0/pwt.parquet
+data/README.md                the dataset card; data/LICENSE; data/provenance.yaml
 ```
 
 Each `MANIFEST.json` has a `release` object (release page, DOI, licence link,
@@ -73,4 +97,5 @@ sha256, sha1, Last-Modified, fetch time (UTC) and, for DataverseNL files, the
 datafile id, file version, published SHA-1 and any earlier datafile of the same
 name.
 
-`data/raw/` is not committed.
+`data/raw/` and `data/parquet/` are not committed; the card, LICENSE and
+provenance.yaml under `data/` are.

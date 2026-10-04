@@ -1,0 +1,44 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Everything under this directory comes from the Penn World Table (PWT),
+releases 8.0, 8.1, 9.0, 9.1, 10.0, 10.01 and 11.0, published by the
+Groningen Growth and Development Centre (GGDC), University of Groningen, at
+https://www.rug.nl/ggdc/productivity/pwt/ (earlier releases at
+https://www.rug.nl/ggdc/productivity/pwt/earlier-releases), and for 11.0 and
+10.01 on DataverseNL (https://doi.org/10.34894/FABVLR,
+https://doi.org/10.34894/QT5BCC).
+
+Each release page, read on 2026-10-05, says that the release ("Penn World
+Table 11.0" and so on) "by Robert C. Feenstra, Robert Inklaar and Marcel P.
+Timmer is licensed under a Creative Commons Attribution 4.0 International
+License", and asks, under "Attribution requirement":
+
+  When using these data (for whatever purpose), please make the following
+  reference: Feenstra, Robert C., Robert Inklaar and Marcel P. Timmer
+  (2015), "The Next Generation of the Penn World Table" American Economic
+  Review, 105(10), 3150-3182, available for download at www.ggdc.net/pwt
+
+The DataverseNL records of 11.0 and 10.01 state CC BY 4.0 as well.
+
+The files under raw/<release>/ are GGDC's own files, byte for byte; each
+release's MANIFEST.json records their URLs, sizes, sha256 and
+Last-Modified. The program packages among them contain input data from
+other sources as PWT distributes them; the terms of those inputs were not
+checked.
+
+The Parquet under parquet/<release>/ was made from the Stata (.dta) files:
+
+  - for 8.0 and 8.1, the Stata file inside the release's zip was read
+  - columns were typed by name: identifiers as text, year as an integer,
+    the measures as 64-bit floats (4-byte floats widened exactly)
+  - codes with Stata value labels (i_cig, i_xm, i_xr, i_outlier, i_irr and
+    the coded columns of labor_detail) were replaced by their labels, the
+    text PWT's own xlsx files show
+  - Stata missing values and empty strings became NULL
+  - the strings of pwt81.dta were decoded as Mac Roman
+  - rows keep the order of the Stata file
+  - no other value was changed
+
+The code that fetches, checks and converts is in the repository this
+dataset was built from and does not apply here.
